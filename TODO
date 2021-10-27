@@ -1,0 +1,38 @@
+8/10/21:
+X Create event data to generate text about the event.
+X Creaet a base class like CreationEvent -> SpellCreationEvent
+
+8/19/21:
+X Finish history_event_data
+X Get real output from the procgen module
+
+8/29/21:
+X Write species manager
+X Finish writing faction manager
+
+8/30/21:
+X Add character modifier scores to entity data
+X Design event templates
+O Add "Take Historical Action" to entity data
+
+9/2/21:
+X Write code to read event templates
+
+9/7/21:
+R Write a few event result functions (no more result functions, only events)
+R Create a way to send result function's event description back into history (covered by cascading events)
+
+9/20/21:
+X Test a refactor to using global data managers instead of objects
+X Write a new enity base function, for testing
+O Create a history runner
+O Write more events - including birth
+
+9/21/21:
+O Convert data-oriented classes to Data Classes
+
+10/26/21:
+X Figured out isometric render basics
+X Switched to pyglet
+O! Straighten out combining the modules
+

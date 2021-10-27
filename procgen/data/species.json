@@ -1,0 +1,38 @@
+{
+	"human": {
+		"oldest": 100,
+		"color_name": "red",
+		"str": 1,
+		"dex": 0,
+		"int": 3,
+		"wis": -1,
+		"cha": 0
+	},
+	"turtle": {
+		"oldest": 200,
+		"color_name" : "green",
+		"str": 0,
+		"dex": -5,
+		"int": 0,
+		"wis": 5,
+		"cha": 0
+	},
+	"penguin": {
+		"oldest": 20,
+		"color_name": "black",
+		"str": 0,
+		"dex": 0,
+		"int": -2,
+		"wis": 0,
+		"cha": 2
+	},
+	"elephant": {
+		"oldest": 60,
+		"color_name": "grey",
+		"str": 7,
+		"dex": -5,
+		"int": 1,
+		"wis": 2,
+		"cha": 0
+	}
+}

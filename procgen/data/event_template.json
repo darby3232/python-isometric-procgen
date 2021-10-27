@@ -1,0 +1,15 @@
+{
+	"duel" :{
+		"actor_keys":{		
+			"challenger" : "pass_in",
+			"challengee" : "challenger|enemy"
+
+		},
+		"description" : "In {year}, {challenger?name} {enemy?name}."
+	},
+	"wounded" :{
+		"actor_keys":[
+			""
+		]
+	}
+}

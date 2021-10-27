@@ -1,0 +1,35 @@
+{		
+	"ambitious": {
+		"str": 0,
+		"dex": 0,
+		"int": 0,
+		"wis": -3,
+		"cha": 0,
+		"action_likelihood_mod": 100
+	},
+	"patient": {
+		"str": 0,
+		"dex": 0,
+		"int": 0,
+		"wis": 5,
+		"cha": 0,
+		"action_likelihood_mod": -50 
+	},
+	"strong": {
+		"str": 5,
+		"dex": 0,
+		"int": 0,
+		"wis": 0,
+		"cha": 0,
+		"action_likelihood_mod": 0 
+	},
+	"lithe": {
+		"str": 0,
+		"dex": 5,
+		"int": 0,
+		"wis": 0,
+		"cha": 0,
+		"action_likelihood_mod": 0
+	}
+
+}

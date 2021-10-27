@@ -1,0 +1,36 @@
+{
+	"first_name_prefix": [
+		"bar",
+		"sar",
+		"din"
+	],
+	"first_name_suffix": [
+		"root",
+		"kin",
+		"vino"
+	],
+	"last_name_prefix": [
+		"man",
+		"map",
+		"mak",
+		"mam",
+		"mao",
+		"bear",
+		"bild"
+	],
+	"last_name_suffix": [
+		"son",
+		"les",
+		"kind"
+	],
+	"faction_first_name": [
+		"gang",
+		"tidal wave",
+		"flock"
+	],
+	"faction_last_name": [
+		"of the desert",
+		"of the king",
+		"from underneath"
+	]
+}

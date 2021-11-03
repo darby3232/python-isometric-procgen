@@ -5,7 +5,6 @@ class RoomTile:
 	is_active: bool = False
 	sprite: pyglet.sprite.Sprite = None
 
-
 class RoomGraphics:
 
 	# probably can't use batches effectively in isometric render, so just draw the sprites individually | not that costly anyways
@@ -47,4 +46,3 @@ class RoomGraphics:
 			for tile in reversed(y_col):
 				if tile.is_active:
 					tile.sprite.draw()
-

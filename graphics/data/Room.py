@@ -1,5 +1,4 @@
 import pyglet
-from game import resources
 
 class RoomTile:
 	is_active: bool = False

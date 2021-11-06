@@ -1,4 +1,5 @@
 import json
+from data.file_paths import graphics_data_path
 
 class GraphicsData:
 
@@ -6,4 +7,6 @@ class GraphicsData:
         pass
 
     def load(self):
-        pass
+        with open(graphics_data_path) as file:
+            graphics_data = json.load(file) 
+            self.

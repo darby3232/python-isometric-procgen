@@ -5,5 +5,3 @@ with open("./file_paths.json") as file:
 
 # file paths
 graphics_data_path = file_paths["graphics_data_path"]
-
-

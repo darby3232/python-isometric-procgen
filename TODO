@@ -36,3 +36,6 @@ X Figured out isometric render basics
 X Switched to pyglet
 O! Straighten out combining the modules
 
+11/6/21:
+X Basic loading functionality
+X Create Event Bus

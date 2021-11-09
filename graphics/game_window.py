@@ -1,9 +1,9 @@
 import pyglet
 
 from core.event_bus import event_bus
-from core.event_types import EventType, OnMouseMoveEvent
+from core.event_types import EventType, OnMouseMoveEvent, no_data_event_instance 
 
-class PygletWindow(pyglet.window.Window):
+class GameWindow(pyglet.window.Window):
 	
 	draw_debug: bool = True
 
@@ -13,6 +13,7 @@ class PygletWindow(pyglet.window.Window):
 		self.self.world_origin_y_s = (self.height // 2)
 
 	def start():
+		# we probably don't want this here 
 		pyglet.app.run()
 
 	def render(self):
@@ -24,6 +25,9 @@ class PygletWindow(pyglet.window.Window):
 
 		#our render function	
 		self.render()
+
+		# inform people that care the frame was drawn
+		event_bus.emit(EventType.ON_DRAW_FRAME, no_data_event_instance)
 
 	def on_mouse_motion(self, x, y, dx, dy):
 		mouse_move_event = OnMouseMoveEvent(x, y, dx, dy)

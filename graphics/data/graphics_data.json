@@ -1,7 +1,22 @@
 {
-    "tile_image_pixel_width"
+
+    "window_x_size": 640,
+    "window_y_size": 480,
+
+    "tile_image_region_x_start": 4,
+    "tile_image_region_x_end": 42,
+    "tile_image_region_y_start": 0,
+    "tile_image_region_y_end": 49,
     
     "tile_image_top_pixel_width": 42,
-    "tile_image_top_pixel_height": 24
+    "tile_image_top_pixel_height": 24,
+
+    "pyglet_resource_path": "./my/path",
+
+    "image_paths": {
+        "grass_image_path": "./path/to/grass"
+
+
+    }
 
 }

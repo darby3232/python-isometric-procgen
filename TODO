@@ -42,4 +42,4 @@ X Create Event Bus
 
 11/7/21:
 O Hook window up to the event bus
-O Create a 'drawer' function to put into the window
+O Create a 'drawer' function to put data into the window

@@ -15,7 +15,6 @@ def get_modded_tile_image(image_path: str) -> any:
 	anchor_tile(sub_image)
 	return sub_image
 
-
 def get_modded_wall_image(image_path: str) -> any:
 	image = pyglet.resource.image(image_path)
 	sub_image = image.get_region(4, 0, 42, 49)

@@ -10,12 +10,15 @@ class EventType(Enum):
 
     # Pyglet Events
     ON_MOUSE_MOVE = 4
+    ON_DRAW_FRAME = 5
 
 class Event: 
 	pass
 
 class NoDataEvent(Event):
     pass
+
+no_data_event_instance = NoDataEvent()
 
 class OnMouseMoveEvent(Event):
    

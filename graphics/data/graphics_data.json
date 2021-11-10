@@ -14,7 +14,7 @@
     "pyglet_resource_path": "./my/path",
 
     "image_paths": {
-        "grass_image_path": "./path/to/grass"
+        "grass_image": "./path/to/grass/image"
 
 
     }

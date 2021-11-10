@@ -8,6 +8,10 @@ from core.event_types import EventType, NoDataEvent
 class GraphicsUpdateType(Enum):
     WINDOW_SIZE_CHANGE = "window_size_change"
 
+# This is just a list of all images loaded 
+class GraphicsImages(Enum):
+    GRASS_IMAGE = "grass_image"
+
 
 class GraphicsData:
 
@@ -40,6 +44,10 @@ class GraphicsData:
 
             self.tile_image_top_pixel_width = graphics_data["tile_image_top_pixel_width"]
             self.tile_image_top_pixel_height = graphics_data["tile_image_top_pixel_height"]
+
+            # load the all the images
+            
+
 
         self.has_loaded = True
 

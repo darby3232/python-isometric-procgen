@@ -12,6 +12,7 @@ class GraphicsUpdateType(Enum):
 class GraphicsImages(Enum):
     GRASS_IMAGE = "grass_image"
 
+    
 
 class GraphicsData:
 
@@ -25,6 +26,8 @@ class GraphicsData:
     
     tile_image_top_pixel_width: int 
     tile_image_top_pixel_height: int  
+
+    image_paths: dict[str, str]
 
     has_loaded: bool = False
 
@@ -46,8 +49,11 @@ class GraphicsData:
             self.tile_image_top_pixel_height = graphics_data["tile_image_top_pixel_height"]
 
             # load the all the images
-            
+            self.image_paths = {} 
 
+            image_path_data: any = graphics_data["image_paths"]
+            for image_name, image_path in image_path_data.items():
+                self.image_paths[image_name] = image_path
 
         self.has_loaded = True
 

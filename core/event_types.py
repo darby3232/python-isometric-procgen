@@ -1,16 +1,17 @@
-from enum import Enum
+from enum import Enum, auto
 
 class EventType(Enum):
     # Core Events
-    INITIAL_LOAD = 1
+    # INITIAL_LOAD = auto()
+    # MAIN_LOAD = auto()
 
     # Game State Events
-    GOTO_MAIN_MENU = 2 
-    START_GAME = 3
+    GOTO_MAIN_MENU = auto() 
+    START_GAME = auto()
 
     # Pyglet Events
-    ON_MOUSE_MOVE = 4
-    ON_DRAW_FRAME = 5
+    ON_MOUSE_MOVE = auto()
+    ON_DRAW_FRAME = auto()
 
 class Event: 
 	pass

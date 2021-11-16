@@ -4,15 +4,10 @@ from enum import Enum
 from data.file_paths import graphics_data_path
 from core.event_bus import event_bus 
 from core.event_types import EventType, NoDataEvent 
+from core.extended_enum import ExtendedEnum
 
 class GraphicsUpdateType(Enum):
     WINDOW_SIZE_CHANGE = "window_size_change"
-
-# This is just a list of all images loaded 
-class GraphicsImages(Enum):
-    GRASS_IMAGE = "grass_image"
-
-    
 
 class GraphicsData:
 
@@ -32,9 +27,12 @@ class GraphicsData:
     has_loaded: bool = False
 
     def __init__(self) -> None:
-        event_bus.add_listener(EventType.INITIAL_LOAD, self.load)
+        # event_bus.add_listener(EventType.INITIAL_LOAD, self.load)
+        pass
 
     def load(self, event: NoDataEvent) -> None:
+        print("Loading the graphics data")
+
         with open(graphics_data_path) as file:
             graphics_data = json.load(file) 
             self.window_x_size = graphics_data["window_x_size"]
@@ -51,11 +49,16 @@ class GraphicsData:
             # load the all the images
             self.image_paths = {} 
 
+            # get the path data object
             image_path_data: any = graphics_data["image_paths"]
-            for image_name, image_path in image_path_data.items():
-                self.image_paths[image_name] = image_path
+
+            # cycle through our expected data image keys
+            for image_name in GraphicsImages.list():
+                self.image_paths[image_name] = image_path_data[image_name]
 
         self.has_loaded = True
+
+        print(json.dumps(self.image_paths))
 
     def update(self, update_type: GraphicsUpdateType, new_value: any) -> None:
         # here we can mess with the graphics settings

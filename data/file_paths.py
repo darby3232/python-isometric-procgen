@@ -1,6 +1,6 @@
 import json
 
-with open("./file_paths.json") as file:
+with open("./data/file_paths.json") as file:
 	file_paths = json.load(file)
 
 # file paths

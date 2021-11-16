@@ -41,9 +41,9 @@ X Basic loading functionality
 X Create Event Bus
 
 11/7/21:
-O Hook window up to the event bus
+X Hook window up to the event bus
 O Create a 'drawer' function to put data into the window
 
 11/14/21:
-O Create an extended enum - https://stackoverflow.com/questions/29503339/how-to-get-all-values-from-python-enum-class/29503414 to inherit IMAGE_NAME enums from
+X Create an extended enum - https://stackoverflow.com/questions/29503339/how-to-get-all-values-from-python-enum-class/29503414 to inherit IMAGE_NAME enums from
 

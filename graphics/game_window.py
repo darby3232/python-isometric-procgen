@@ -2,17 +2,23 @@ import pyglet
 
 from core.event_bus import event_bus
 from core.event_types import EventType, OnMouseMoveEvent, no_data_event_instance 
+from graphics.data.graphics_data import GraphicsData
 
 class GameWindow(pyglet.window.Window):
 	
 	draw_debug: bool = True
+	graphics_data: GraphicsData
 
-	def __init__(self):
+	def __init__(self, graphics_data: GraphicsData):
+		super().__init__()
+		
+		self.graphics_data = graphics_data
 		# create all the pyglet objects
-		self.self.world_origin_x_s = (self.width // 2) 
-		self.self.world_origin_y_s = (self.height // 2)
+		
+		self.world_origin_x_s = (self.width // 2) 
+		self.world_origin_y_s = (self.height // 2)
 
-	def start():
+	def start(self):
 		# we probably don't want this here 
 		pyglet.app.run()
 

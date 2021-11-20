@@ -3,8 +3,8 @@ from pyglet.window import Window
 
 from graphics.data.graphics_data import GraphicsData 
 
-def set_pyglet_resource_path(path: str) -> None:
-	pyglet.resource.path = [path]
+def set_pyglet_resource_paths(path: list[str]) -> None:
+	pyglet.resource.path = path
 	pyglet.resource.reindex()
 
 def get_world_origin_screen_space(window: Window) -> tuple[int, int]:

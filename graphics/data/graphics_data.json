@@ -11,11 +11,15 @@
     "tile_image_top_pixel_width": 42,
     "tile_image_top_pixel_height": 24,
 
-    "pyglet_resource_path": "./my/path",
+    "asset_base_paths": 
+    [
+        "./assets/tile_images/",
+        "./assets/ui_images/"
+    ],
+    "image_filenames": {
+        "title_image": "title.png",
 
-    "image_paths": {
-        "grass_image": "./path/to/grass/image"
-
+        "grass_tile": "grass_tile.png"      
 
     }
 

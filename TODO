@@ -47,3 +47,6 @@ O Create a 'drawer' function to put data into the window
 11/14/21:
 X Create an extended enum - https://stackoverflow.com/questions/29503339/how-to-get-all-values-from-python-enum-class/29503414 to inherit IMAGE_NAME enums from
 
+11/20/21:
+X Create a 'graphics data' loader
+X Start a 'game manager' to manage loading and other functions

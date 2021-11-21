@@ -1,1 +1,2 @@
 pyglet>=1.5.21
+imgui[pyglet]>=1.4.1

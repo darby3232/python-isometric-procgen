@@ -1,13 +1,14 @@
 from core.event_bus import event_bus
 from core.event_types import EventType, no_data_event_instance
-from graphics.game_window import GameWindow
 from graphics.data.graphics_data import GraphicsData
-from graphics.image_loader import image_loader, ImageLoader
+from graphics.draw_data_container import DrawDataContainer
+from graphics.game_window import GameWindow
 
 class GameManager:
 	
 	window: GameWindow 
 	graphics_data: GraphicsData
+	draw_data_container: DrawDataContainer	
 
 	def __init__(self) -> None:
 		pass
@@ -34,13 +35,15 @@ class GameManager:
 		self.graphics_data = GraphicsData()
 		self.graphics_data.load()
 
+		self.draw_data_container = DrawDataContainer()
+
 		# load ui images
-		image_loader.set_resource_paths(self.graphics_data.asset_base_paths)
-		image_loader.load_ui_images(self.graphics_data)
+		self.draw_data_container.set_resource_paths(self.graphics_data.asset_base_paths)
+		self.draw_data_container.load_ui_images(self.graphics_data)
 
 	def full_load(self) -> None:
 		# main images
-		image_loader.load_game_images(self.graphics_data)
+		self.draw_data_container.load_game_images(self.graphics_data)
 
 	def __graphics_start(self) -> None:
 		self.window.start()

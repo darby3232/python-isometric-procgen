@@ -3,11 +3,17 @@ import pyglet
 from core.event_bus import event_bus
 from core.event_types import EventType, OnMouseMoveEvent, no_data_event_instance 
 from graphics.data.graphics_data import GraphicsData
+from graphics.ui_handler import UIHandler
+from graphics.game_draw_data_container import GameDrawDataContainer
+
 
 class GameWindow(pyglet.window.Window):
 	
 	draw_debug: bool = True
 	graphics_data: GraphicsData
+
+	ui_handler: UIHandler = None
+	game_drawer: GameDrawDataContainer = None
 
 	def __init__(self, graphics_data: GraphicsData):
 		super().__init__()
@@ -22,8 +28,19 @@ class GameWindow(pyglet.window.Window):
 		# we probably don't want this here 
 		pyglet.app.run()
 
+	def register_ui_handler(self, ui_handler: UIHandler) -> None:
+		self.ui_handler = ui_handler
+	
+	def register_game_drawer(self, game_drawer: GameDrawDataContainer) -> None:
+		self.game_drawer = game_drawer 
+
 	def render(self):
-		pass
+		if self.ui_handler is not None:
+			self.ui_handler.draw()
+		
+		if self.game_drawer is not None:
+			self.game_drawer.draw()
+
 
 	def on_draw(self):
 		# pyglet's own clear function

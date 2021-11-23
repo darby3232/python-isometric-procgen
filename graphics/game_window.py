@@ -35,12 +35,11 @@ class GameWindow(pyglet.window.Window):
 		self.game_drawer = game_drawer 
 
 	def render(self):
-		if self.ui_handler is not None:
-			self.ui_handler.draw()
-		
 		if self.game_drawer is not None:
 			self.game_drawer.draw()
 
+		if self.ui_handler is not None:
+			self.ui_handler.draw()
 
 	def on_draw(self):
 		# pyglet's own clear function

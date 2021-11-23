@@ -1,10 +1,11 @@
 from core.event_bus import event_bus
 from core.event_types import EventType, no_data_event_instance
 from graphics.data.graphics_data import GraphicsData
-from graphics.game_draw_data_container import DrawDataContainer
+from graphics.game_draw_data_container import GameDrawDataContainer
 from graphics.game_window import GameWindow
 from graphics.image_loader import ImageLoader
 from graphics.ui_handler import UIHandler
+from graphics.graphics_helper_functions import start_pyglet 
 
 class GameManager:
 	
@@ -12,7 +13,7 @@ class GameManager:
 	window: GameWindow 
 	graphics_data: GraphicsData
 	image_loader: ImageLoader
-	draw_data_container: DrawDataContainer	
+	draw_data_container: GameDrawDataContainer	
 	ui_handler: UIHandler
 
 
@@ -54,9 +55,9 @@ class GameManager:
 		self.draw_data_container.load_game_images()
 
 	def __graphics_start(self) -> None:
-		self.window.start()
-		# show the load menu
-
+		start_pyglet()
+		
+		
 
 	def __game_start(self) -> None:
 		# show menu, etc

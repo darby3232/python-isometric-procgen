@@ -52,4 +52,8 @@ X Create a 'graphics data' loader
 X Start a 'game manager' to manage loading and other functions
 
 11/21/21:
-O Do pyimgui integration: https://github.com/pyimgui/pyimgui/blob/master/doc/examples/integrations_pyglet.py
+X Do pyimgui integration: https://github.com/pyimgui/pyimgui/blob/master/doc/examples/integrations_pyglet.py
+
+11/22/21:
+O Convert JSON into YAML
+O Try out more of pyimgui

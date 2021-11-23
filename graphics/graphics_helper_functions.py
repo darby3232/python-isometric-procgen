@@ -3,6 +3,9 @@ from pyglet.window import Window
 
 from graphics.data.graphics_data import GraphicsData 
 
+def start_pyglet() -> None:
+	pyglet.app.run()
+
 def set_pyglet_resource_paths(path: list[str]) -> None:
 	pyglet.resource.path = path
 	pyglet.resource.reindex()

@@ -55,5 +55,5 @@ X Start a 'game manager' to manage loading and other functions
 X Do pyimgui integration: https://github.com/pyimgui/pyimgui/blob/master/doc/examples/integrations_pyglet.py
 
 11/22/21:
-O Convert JSON into YAML
+O Convert change data format?? JSON -> YAML, TOML, OpenDDL? 
 O Try out more of pyimgui

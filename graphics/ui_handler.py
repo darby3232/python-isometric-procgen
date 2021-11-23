@@ -37,7 +37,12 @@ class UIHandler:
 				imgui.end_menu()
 			imgui.end_main_menu_bar()
 
-		imgui.begin("Custom window", True)
+		imgui.begin("Custom window", 
+			flags=imgui.WINDOW_NO_MOVE |
+			imgui.WINDOW_NO_TITLE_BAR |
+			imgui.WINDOW_NO_RESIZE
+		)
+
 		imgui.text("Bar")
 		imgui.text_colored("Eggs", 0.2, 1., 0.)
 

@@ -24,6 +24,8 @@ class GraphicsData:
     tile_image_top_pixel_width: int 
     tile_image_top_pixel_height: int  
 
+    font_paths: dict[str, str] = dict()
+
     asset_base_paths: list[str] = list()
 
     image_filenames: dict[str, str] = dict()
@@ -49,6 +51,8 @@ class GraphicsData:
 
             self.tile_image_top_pixel_width = graphics_data["tile_image_top_pixel_width"]
             self.tile_image_top_pixel_height = graphics_data["tile_image_top_pixel_height"]
+
+            self.font_paths = graphics_data["font_paths"]
 
             # load the asset paths
             self.asset_base_paths = graphics_data["asset_base_paths"]

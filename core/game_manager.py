@@ -26,7 +26,7 @@ class GameManager:
 		# initial load: graphics data, ui_images, imgui startup, sound
 		self.initial_load()
 		self.window = GameWindow(self.graphics_data)
-		self.ui_handler = UIHandler(self.window)
+		self.ui_handler = UIHandler(self.window, self.graphics_data)
 		self.window.register_ui_handler(self.ui_handler)
 
 		# start the graphics and sound for loading screen

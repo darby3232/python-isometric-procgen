@@ -1,4 +1,4 @@
-import json
+import toml
 from enum import Enum
 
 from data.file_paths import graphics_data_path
@@ -40,7 +40,7 @@ class GraphicsData:
         print("Loading the graphics data")
 
         with open(graphics_data_path) as file:
-            graphics_data = json.load(file) 
+            graphics_data = toml.load(file) 
             self.window_x_size = graphics_data["window_x_size"]
             self.window_y_size = graphics_data["window_y_size"]
 
@@ -62,15 +62,15 @@ class GraphicsData:
 
         self.has_loaded = True
 
-        print(json.dumps(self.image_filenames))
+        print(toml.dumps(self.image_filenames))
 
     def update(self, update_type: GraphicsUpdateType, new_value: any) -> None:
         # here we can mess with the graphics settings
         with open(graphics_data_path, "a+") as file:
-            existing_data = json.load(file)
+            existing_data = toml.load(file)
             
             existing_data[update_type.value] = new_value
             
             file.seek(0)
-            json.dump(file)
+            toml.dump(file)
             file.truncate()

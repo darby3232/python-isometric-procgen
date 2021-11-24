@@ -1,0 +1,14 @@
+[lightning]
+first_name = [ "finger", "bolt", "zap",]
+last_name = [ "of the mountain", "of the skies", "of zorpo",]
+impetus = [ "seeing a tree split by a flash", "getting a static shock", "feeling the floor rumble from thunder",]
+
+[fire]
+first_name = [ "scalding", "scorching", "volcanic",]
+last_name = [ "torch", "magma", "blast",]
+impetus = [ "watching a forest fire", "getting burned by a candle", "lighting a match",]
+
+[ice]
+first_name = [ "gaze", "cold", "snap",]
+last_name = [ "of the deep", "of ice", "of king freeze",]
+impetus = [ "getting frostbite in their pinky", "enjoying a cold drink of water", "seeing an image of a polar bear",]

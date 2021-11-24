@@ -1,0 +1,9 @@
+[duel]
+description = "In {year}, {challenger?name} {enemy?name}."
+
+[wounded]
+actor_keys = [ "",]
+
+[duel.actor_keys]
+challenger = "pass_in"
+challengee = "challenger|enemy"

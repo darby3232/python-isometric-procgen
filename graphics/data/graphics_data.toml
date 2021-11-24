@@ -1,0 +1,16 @@
+window_x_size = 640
+window_y_size = 480
+tile_image_region_x_start = 4
+tile_image_region_x_end = 42
+tile_image_region_y_start = 0
+tile_image_region_y_end = 49
+tile_image_top_pixel_width = 42
+tile_image_top_pixel_height = 24
+asset_base_paths = [ "./assets/tile_images/", "./assets/ui_images/",]
+
+[font_paths]
+base_font = "./assets/fonts/monofont.ttf"
+
+[image_filenames]
+title_image = "title.png"
+grass_tile = "grass_tile.png"

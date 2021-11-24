@@ -55,5 +55,9 @@ X Start a 'game manager' to manage loading and other functions
 X Do pyimgui integration: https://github.com/pyimgui/pyimgui/blob/master/doc/examples/integrations_pyglet.py
 
 11/22/21:
-O Convert change data format?? JSON -> YAML, TOML, OpenDDL? 
-O Try out more of pyimgui
+X Read about data formats instead of json
+X Try out more of pyimgui
+
+11/23/21:
+X Convert to TOML 
+O Write wrappers for imgui functions, then call those functions in immediate mode inside custom objects w/ a draw function. Draw those custom objects

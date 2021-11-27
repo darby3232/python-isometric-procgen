@@ -5,7 +5,8 @@ from graphics.game_draw_data_container import GameDrawDataContainer
 from graphics.game_window import GameWindow
 from graphics.image_loader import ImageLoader
 from graphics.ui_handler import UIHandler
-from graphics.graphics_helper_functions import start_pyglet 
+from graphics.ui.ui_test import UITestObject
+import graphics.graphics_helper_functions as graphics_helpers
 
 class GameManager:
 	
@@ -55,9 +56,11 @@ class GameManager:
 		self.draw_data_container.load_game_images()
 
 	def __graphics_start(self) -> None:
-		start_pyglet()
+		# place the ui  
+		test_object: UITestObject = UITestObject()
+		self.ui_handler.add_ui_object("tester", test_object)
 		
-		
+		graphics_helpers.start_pyglet()
 
 	def __game_start(self) -> None:
 		# show menu, etc

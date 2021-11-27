@@ -8,48 +8,30 @@ from pyglet import gl
 
 import imgui
 from imgui.integrations.pyglet import create_renderer, PygletFixedPipelineRenderer, PygletProgrammablePipelineRenderer
+from graphics.ui.ui_object import UIObject
 
+import graphics.ui.ui_immediate_functions as ui_int
 
 class UIHandler:
 
 	impl: Union[PygletFixedPipelineRenderer, PygletProgrammablePipelineRenderer]
+	ui_objects: dict[str, UIObject] = dict()
 
 	def __init__(self, window: pyglet.window.Window, graphics_data: GraphicsData):
 		gl.glClearColor(1, 1, 1, 1)
 
 		imgui.create_context()
-		self.impl = create_renderer(window)
+		self.impl = ui_int.initialize_ui(window)
+
+	def add_ui_object(self, object_key: str, ui_object: UIObject) -> None:
+		self.ui_objects[object_key] = ui_object 
 
 	def draw(self) -> None:
 
-		imgui.new_frame()
+		ui_int.new_frame()
 
-		if imgui.begin_main_menu_bar():
-			if imgui.begin_menu("File", True):
+		for object_key, ui_object in self.ui_objects.items():
+			ui_object.draw()
 
-				clicked_quit, selected_quit = imgui.menu_item(
-					"Quit", 'Cmd+Q', False, True
-				)
-
-				if clicked_quit:
-					exit(1)
-
-				imgui.end_menu()
-			imgui.end_main_menu_bar()
-
-		imgui.begin("Custom window", 
-			flags=imgui.WINDOW_NO_MOVE |
-			imgui.WINDOW_NO_TITLE_BAR |
-			imgui.WINDOW_NO_RESIZE
-		)
-
-		imgui.text("Bar")
-		imgui.text_colored("Eggs", 0.2, 1., 0.)
-
-		imgui.text_ansi("B\033[31marA\033[mnsi ")
-		imgui.text_ansi_colored("Eg\033[31mgAn\033[msi ", 0.2, 1., 0.)
-
-		imgui.end()
-
-		imgui.render()
-		self.impl.render(imgui.get_draw_data())
+		ui_int.render()
+		self.impl.render(ui_int.get_draw_data())

@@ -15,7 +15,9 @@ import graphics.ui.ui_immediate_functions as ui_int
 class UIHandler:
 
 	impl: Union[PygletFixedPipelineRenderer, PygletProgrammablePipelineRenderer]
+
 	ui_objects: dict[str, UIObject] = dict()
+	objects_to_draw: list[str] = list()
 
 	def __init__(self, window: pyglet.window.Window, graphics_data: GraphicsData):
 		gl.glClearColor(1, 1, 1, 1)
@@ -25,13 +27,24 @@ class UIHandler:
 
 	def add_ui_object(self, object_key: str, ui_object: UIObject) -> None:
 		self.ui_objects[object_key] = ui_object 
+	
+	def remove_ui_object(self, object_key: str) -> None:
+		del self.ui_objects[object_key]
+		self.objects_to_draw.remove(object_key)		
+
+	def show_ui_object(self, object_key: str) -> None:
+		self.objects_to_draw.append(object_key)
+
+	def hide_ui_object(self, object_key: str) -> None:
+		self.objects_to_draw.remove(object_key)
+
 
 	def draw(self) -> None:
 
 		ui_int.new_frame()
 
-		for object_key, ui_object in self.ui_objects.items():
-			ui_object.draw()
+		for key in self.objects_to_draw:
+			self.ui_objects[key].draw()
 
 		ui_int.render()
 		self.impl.render(ui_int.get_draw_data())

@@ -9,8 +9,6 @@ import imgui
 from imgui.integrations.pyglet import create_renderer, PygletFixedPipelineRenderer, PygletProgrammablePipelineRenderer
 
 class UIWindowFlags(Enum):
-
-
 	NO_TITLE_BAR = imgui.WINDOW_NO_TITLE_BAR # auto()
 	NO_RESIZE = imgui.WINDOW_NO_RESIZE # auto()
 	NO_MOVE = imgui.WINDOW_NO_MOVE # auto()

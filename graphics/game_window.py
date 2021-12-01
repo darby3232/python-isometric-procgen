@@ -1,7 +1,7 @@
 import pyglet
 
 from core.event_bus import event_bus
-from core.event_types import EventType, OnMouseMoveEvent, no_data_event_instance 
+from core.event_types import EventType, OnMouseMoveEvent, OnDrawEvent, no_data_event_instance
 from graphics.data.graphics_data import GraphicsData
 from graphics.ui_handler import UIHandler
 from graphics.game_draw_data_container import GameDrawDataContainer

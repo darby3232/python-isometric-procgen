@@ -1,4 +1,7 @@
 from enum import Enum, auto
+from typing import NewType
+
+from graphics.screen_state import ScreenState
 
 class EventType(Enum):
     # Core Events
@@ -6,8 +9,7 @@ class EventType(Enum):
     # MAIN_LOAD = auto()
 
     # Game State Events
-    GOTO_MAIN_MENU = auto() 
-    START_GAME = auto()
+    ON_SCREEN_STATE_CHANGE = auto()
 
     # Pyglet Events
     ON_MOUSE_MOVE = auto()
@@ -20,6 +22,16 @@ class NoDataEvent(Event):
     pass
 
 no_data_event_instance = NoDataEvent()
+
+class OnDrawEvent(Event):  
+    pass
+
+class OnChangeScreenState(Event):
+
+    new_state: ScreenState
+
+    def __init__(self, screen_state: ScreenState) -> None:
+        self.new_state = screen_state
 
 class OnMouseMoveEvent(Event):
    

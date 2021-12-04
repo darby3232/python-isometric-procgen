@@ -8,6 +8,8 @@ tile_image_top_pixel_width = 42
 tile_image_top_pixel_height = 24
 asset_base_paths = [ "./assets/tile_images/", "./assets/ui_images/",]
 
+font_pixel_size = 20
+
 [font_paths]
 base_font = "./assets/fonts/monofont.ttf"
 

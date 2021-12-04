@@ -11,6 +11,7 @@ from graphics.game_window import GameWindow
 from graphics.image_loader import ImageLoader
 from graphics.ui_handler import UIHandler
 from graphics.ui.ui_test import UITestObject
+from graphics.ui.ui_immediate_functions import font_manager
 import graphics.graphics_helper_functions as graphics_helpers
 
 
@@ -45,7 +46,6 @@ class GameManager(ListenerContext):
 		self.window.register_ui_handler(self.ui_handler)
 		self.screen_state_machine = ScreenStateMachine(self.ui_handler, self.draw_data_container)
 
-
 		# start the graphics and sound for loading screen
 		self.__graphics_start()
 
@@ -54,6 +54,9 @@ class GameManager(ListenerContext):
 		# create the graphics data
 		self.graphics_data = GraphicsData()
 		self.graphics_data.load()
+
+		for key, value in self.graphics_data.font_paths.items():
+			font_manager.load(key, value, self.graphics_data.font_pixel_size)
 
 		# load ui images
 		self.image_loader = ImageLoader(self.graphics_data)

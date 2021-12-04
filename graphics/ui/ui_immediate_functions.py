@@ -1,5 +1,5 @@
 from __future__ import absolute_import
-from typing import Union
+from typing import Optional, Union
 from enum import Enum, auto
 
 import pyglet
@@ -26,6 +26,26 @@ class UIWindowFlags(Enum):
 	ALWAYS_HORIZONTAL_SCROLLBAR = imgui.WINDOW_ALWAYS_HORIZONTAL_SCROLLBAR # auto()
 	ALWAYS_USE_WINDOW_PADDING = imgui.WINDOW_ALWAYS_USE_WINDOW_PADDING # auto()
 
+class UIConditionFlags(Enum):
+	ALWAYS = imgui.ALWAYS
+	ONCE = imgui.ONCE
+	FIRST_USE_EVER = imgui.FIRST_USE_EVER
+	APPEARING = imgui.APPEARING
+
+
+class FontManager:
+
+	fonts: dict[str, any] = dict()
+	io: any
+
+	def __init__(self):
+		self.io = imgui.get_io()
+
+	def load_font(self, key: str, file_path: str, pixel_size: int) -> None:
+		font = self.io.add_font_from_file_ttf(file_path, pixel_size)
+		self.fonts[key] = font
+
+font_manager: FontManager = FontManager()
 
 def initialize_ui(window: pyglet.window.Window) -> Union[PygletFixedPipelineRenderer, PygletProgrammablePipelineRenderer]:
 	gl.glClearColor(1, 1, 1, 1)
@@ -36,7 +56,6 @@ def initialize_ui(window: pyglet.window.Window) -> Union[PygletFixedPipelineRend
 
 def new_frame() -> None:
 	imgui.new_frame()
-
 
 def render() -> None:
 	imgui.render()
@@ -67,6 +86,18 @@ def menu_item(label: str, shortcut: str, selected: bool, enabled: bool) -> tuple
 	clicked, state = imgui.menu_item(label, shortcut, selected, enabled)
 	print(state)
 	return clicked, state
+
+"""
+Set next window position.
+"""
+def set_next_window_position(x: float, y: float, pivot_x: float, pivot_y: float, condition: UIConditionFlags = UIConditionFlags.ALWAYS) -> None:
+	imgui.set_next_window_position(x, y, condition, pivot_x, pivot_y)
+
+"""
+Set next window size.
+"""
+def set_next_window_size(width: float, height: float, condition: UIConditionFlags = UIConditionFlags.ALWAYS) -> None:
+	imgui.set_next_window_size(width, height, condition)
 
 """
 Returns expanded, opened of bools. 
@@ -105,8 +136,15 @@ def end_child() -> None:
 """
 add text to widget stack.
 """
-def text(text: str) -> None:
-	imgui.text(text)
+def text(text: str, font_key: str = "base_font") -> None:
+	with imgui.font(font_manager[font_key]):
+		imgui.text(text)
+
+"""
+set window text scale	
+"""
+def set_window_font_scale(size: float) -> None:
+	imgui.set_window_font_scale(size)
 
 """
 good for large text block??

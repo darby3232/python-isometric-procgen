@@ -24,6 +24,7 @@ class GraphicsData:
     tile_image_top_pixel_width: int 
     tile_image_top_pixel_height: int  
 
+    font_pixel_size: int
     font_paths: dict[str, str] = dict()
 
     asset_base_paths: list[str] = list()

@@ -10,13 +10,14 @@ class ListenerContext:
 class EventListener:
 
 	callback: Callable[[Event, Optional[ListenerContext]], None]
-	context: any
+	context: Optional[ListenerContext] 
 
 	def __init__(self, callback: Callable[[Event, Optional[ListenerContext]], None], context: Optional[ListenerContext]):
 		self.callback = callback
 		self.context = context
 
-"""
+	
+
 class EventBus:
 	def __init__(self):
 		self.listeners: dict[EventType, list[Callable[[Event], None]]] = dict()
@@ -40,8 +41,9 @@ class EventBus:
 		event_listeners: list[Callable[[Event], None]] = self.listeners[event_type]
 		for listener in event_listeners:
 			listener(event)
-"""
 
+
+"""
 class EventBus:
 	def __init__(self):
 		self.listeners: dict[EventType, EventListener] = dict()
@@ -64,7 +66,8 @@ class EventBus:
 
 		event_listeners: list[EventListener] = self.listeners[event_type]
 		for listener in event_listeners:
-			listener.callback(event, listener.context)
-
+			callback: Callable[[Event, Optional[ListenerContext]], None] = listener.callback
+			callback(event, listener.context)	
+"""
 
 event_bus = EventBus()

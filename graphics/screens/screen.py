@@ -13,7 +13,7 @@ class Screen:
 		self.draw_handler = draw_handler
 
 	# when drawn
-	def on_enter(self) -> None:
+	def on_activate(self) -> None:
 		pass
 
 	# on leaving the page

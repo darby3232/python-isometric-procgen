@@ -1,7 +1,7 @@
 from enum import Enum, auto
 from typing import NewType
 
-from graphics.screen_state import ScreenState
+from game.screen_state_enum import ScreenState
 
 class EventType(Enum):
     # Core Events
@@ -26,7 +26,7 @@ no_data_event_instance = NoDataEvent()
 class OnDrawEvent(Event):  
     pass
 
-class OnChangeScreenState(Event):
+class OnChangeScreenStateEvent(Event):
 
     new_state: ScreenState
 

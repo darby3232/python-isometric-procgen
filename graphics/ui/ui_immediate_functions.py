@@ -32,27 +32,51 @@ class UIConditionFlags(Enum):
 	FIRST_USE_EVER = imgui.FIRST_USE_EVER
 	APPEARING = imgui.APPEARING
 
+class UIStyleVars(Enum):
+	ALPHA = imgui.STYLE_ALPHA
+	BUTTON_TEXT_ALIGN = imgui.STYLE_BUTTON_TEXT_ALIGN
+	CHILD_BORDERSIZE = imgui.STYLE_CHILD_BORDERSIZE
+	CHILD_ROUNDING = imgui.STYLE_CHILD_ROUNDING
+	FRAME_BORDERSIZE = imgui.STYLE_FRAME_BORDERSIZE
+	FRAME_PADDING = imgui.STYLE_FRAME_PADDING
+	FRAME_ROUNDING = imgui.STYLE_FRAME_ROUNDING
+	GRAB_MIN_SIZE = imgui.STYLE_GRAB_MIN_SIZE
+	GRAB_ROUNDING = imgui.STYLE_GRAB_ROUNDING
+	INDENT_SPACING = imgui.STYLE_INDENT_SPACING
+	ITEM_INNER_SPACING = imgui.STYLE_ITEM_INNER_SPACING
+	POPUP_BORDERSIZE = imgui.STYLE_POPUP_BORDERSIZE
+	POPUP_ROUNDING = imgui.STYLE_POPUP_ROUNDING
+	SCROLLBAR_ROUNDING = imgui.STYLE_SCROLLBAR_ROUNDING
+	SCROLLBAR_SIZE = imgui.STYLE_SCROLLBAR_SIZE
+	WINDOW_BORDERSIZE = imgui.STYLE_WINDOW_BORDERSIZE
+	WINDOW_MIN_SIZE = imgui.STYL
 
 class FontManager:
 
 	fonts: dict[str, any] = dict()
 	io: any
+	impl: Union[PygletFixedPipelineRenderer, PygletProgrammablePipelineRenderer]
 
 	def __init__(self):
 		self.io = imgui.get_io()
 
+	def register_impl(self, impl: Union[PygletFixedPipelineRenderer, PygletProgrammablePipelineRenderer]) -> None:
+		self.impl = impl
+
 	def load_font(self, key: str, file_path: str, pixel_size: int) -> None:
-		font = self.io.add_font_from_file_ttf(file_path, pixel_size)
+		font = self.io.fonts.add_font_from_file_ttf(file_path, pixel_size)
+		self.impl.refresh_font_texture()
 		self.fonts[key] = font
 
+
+gl.glClearColor(1, 1, 1, 1)
+imgui.create_context()
 font_manager: FontManager = FontManager()
 
-def initialize_ui(window: pyglet.window.Window) -> Union[PygletFixedPipelineRenderer, PygletProgrammablePipelineRenderer]:
-	gl.glClearColor(1, 1, 1, 1)
-
-	imgui.create_context()
-
-	return create_renderer(window)
+def create_ui_renderer(window: pyglet.window.Window) -> Union[PygletFixedPipelineRenderer, PygletProgrammablePipelineRenderer]:
+	impl = create_renderer(window)
+	font_manager.register_impl(impl)	
+	return impl
 
 def new_frame() -> None:
 	imgui.new_frame()
@@ -88,16 +112,23 @@ def menu_item(label: str, shortcut: str, selected: bool, enabled: bool) -> tuple
 	return clicked, state
 
 """
+Set next window alpha.
+"""
+def set_next_window_bg_alpha(alpha: float) -> None:
+	imgui.set_next_window_bg_alpha(alpha)
+
+"""
 Set next window position.
 """
 def set_next_window_position(x: float, y: float, pivot_x: float, pivot_y: float, condition: UIConditionFlags = UIConditionFlags.ALWAYS) -> None:
-	imgui.set_next_window_position(x, y, condition, pivot_x, pivot_y)
+	imgui.set_next_window_position(x, y, condition.value, pivot_x, pivot_y)
+
 
 """
 Set next window size.
 """
 def set_next_window_size(width: float, height: float, condition: UIConditionFlags = UIConditionFlags.ALWAYS) -> None:
-	imgui.set_next_window_size(width, height, condition)
+	imgui.set_next_window_size(width, height, condition.value)
 
 """
 Returns expanded, opened of bools. 
@@ -137,7 +168,8 @@ def end_child() -> None:
 add text to widget stack.
 """
 def text(text: str, font_key: str = "base_font") -> None:
-	with imgui.font(font_manager[font_key]):
+	font = font_manager.fonts[font_key]
+	with imgui.font(font):
 		imgui.text(text)
 
 """

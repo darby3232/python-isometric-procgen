@@ -53,6 +53,8 @@ class GraphicsData:
             self.tile_image_top_pixel_width = graphics_data["tile_image_top_pixel_width"]
             self.tile_image_top_pixel_height = graphics_data["tile_image_top_pixel_height"]
 
+
+            self.font_pixel_size = graphics_data["font_pixel_size"]
             self.font_paths = graphics_data["font_paths"]
 
             # load the asset paths

@@ -13,18 +13,22 @@ import graphics.ui.ui_immediate_functions as ui_int
 
 class UIHandler:
 
+	graphics_data: GraphicsData
 	impl: Union[PygletFixedPipelineRenderer, PygletProgrammablePipelineRenderer]
 
 	ui_objects: dict[str, UIObject] = dict()
 	objects_to_draw: list[str] = list()
 
 	def __init__(self, window: pyglet.window.Window, graphics_data: GraphicsData):
-		gl.glClearColor(1, 1, 1, 1)
+		self.graphics_data = graphics_data
 
-		self.impl = ui_int.initialize_ui(window)
+		self.impl = ui_int.create_ui_renderer(window)
+
+		# load fonts after creating renderer impl
+		for key, value in self.graphics_data.font_paths.items():
+			ui_int.font_manager.load_font(key, value, self.graphics_data.font_pixel_size)
 
 
-	"""
 	def add_ui_object(self, object_key: str, ui_object: UIObject) -> None:
 		self.ui_objects[object_key] = ui_object 
 	
@@ -37,7 +41,6 @@ class UIHandler:
 
 	def hide_ui_object(self, object_key: str) -> None:
 		self.objects_to_draw.remove(object_key)
-	"""
 
 	def draw(self) -> None:
 

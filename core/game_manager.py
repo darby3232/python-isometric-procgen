@@ -44,7 +44,7 @@ class GameManager(ListenerContext):
 		self.ui_handler = UIHandler(self.window, self.graphics_data)
 		self.draw_data_container = GameDrawDataContainer(self.graphics_data)
 		self.window.register_ui_handler(self.ui_handler)
-		self.screen_state_machine = ScreenStateMachine(self.ui_handler, self.draw_data_container)
+		self.screen_state_machine = ScreenStateMachine(self.ui_handler, self.draw_data_container, self.graphics_data)
 
 		# start the graphics and sound for loading screen
 		self.__graphics_start()
@@ -54,9 +54,6 @@ class GameManager(ListenerContext):
 		# create the graphics data
 		self.graphics_data = GraphicsData()
 		self.graphics_data.load()
-
-		for key, value in self.graphics_data.font_paths.items():
-			font_manager.load(key, value, self.graphics_data.font_pixel_size)
 
 		# load ui images
 		self.image_loader = ImageLoader(self.graphics_data)

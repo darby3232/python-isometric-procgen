@@ -49,7 +49,10 @@ class UIStyleVars(Enum):
 	SCROLLBAR_ROUNDING = imgui.STYLE_SCROLLBAR_ROUNDING
 	SCROLLBAR_SIZE = imgui.STYLE_SCROLLBAR_SIZE
 	WINDOW_BORDERSIZE = imgui.STYLE_WINDOW_BORDERSIZE
-	WINDOW_MIN_SIZE = imgui.STYL
+	WINDOW_MIN_SIZE = imgui.STYLE_WINDOW_MIN_SIZE
+	WINDOW_PADDING = imgui.STYLE_WINDOW_PADDING
+	WINDOW_ROUNDING = imgui.STYLE_WINDOW_ROUNDING
+	WINDOW_TITLE_ALIGN = imgui.STYLE_WINDOW_TITLE_ALIGN
 
 class FontManager:
 
@@ -134,10 +137,10 @@ def set_next_window_size(width: float, height: float, condition: UIConditionFlag
 Returns expanded, opened of bools. 
 """
 def begin(label: str, closable: bool, flags: list[UIWindowFlags]) -> tuple[bool, bool]:
-	# ui_flags = False 
-	ui_flags = True 
-	#for flag in flags:
-	#	ui_flags = ui_flags | flag
+	ui_flags = False 
+	for flag in flags:
+		ui_flags = ui_flags | flag.value
+
 
 	expanded, opened = imgui.begin(label, closable, ui_flags)
 
@@ -186,3 +189,14 @@ def text_unformatted(text: str) -> None:
 
 def text_colored(text: str, r: float, g: float, b: float, a: float) -> None:
 	imgui.text_colored(text, r, g, b, a)
+
+
+"""
+Style var info
+"""
+def push_style_var(style_var: UIStyleVars, value: float) -> None:
+	imgui.push_style_var(style_var.value, value)
+
+
+def pop_style_var(num_to_pop: int) -> None:
+	imgui.pop_style_var(num_to_pop)

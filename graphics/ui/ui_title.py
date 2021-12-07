@@ -1,7 +1,7 @@
 from typing import Optional
 from graphics.ui.ui_object import UIObject
 import graphics.ui.ui_immediate_functions as ui_int
-from graphics.ui.ui_immediate_functions import UIWindowFlags, UIConditionFlags
+from graphics.ui.ui_immediate_functions import UIStyleVars, UIWindowFlags, UIConditionFlags
 
 class UITitle(UIObject):
 
@@ -36,13 +36,16 @@ class UITitle(UIObject):
 
 		ui_int.set_next_window_bg_alpha(0)
 
+		ui_int.push_style_var(UIStyleVars.WINDOW_BORDERSIZE, 0)
+
 		ui_int.begin("title",
 			False,
 			[
 				UIWindowFlags.NO_MOVE,
 				UIWindowFlags.NO_INPUTS,
 				UIWindowFlags.NO_TITLE_BAR,
-				UIWindowFlags.NO_SCROLL_WITH_MOUSE
+				UIWindowFlags.NO_SCROLL_WITH_MOUSE,
+				UIWindowFlags.NO_RESIZE
 			],
 		)
 
@@ -51,3 +54,5 @@ class UITitle(UIObject):
 		ui_int.text("LOADING...", self.font_key)
 
 		ui_int.end()
+
+		ui_int.pop_style_var(1)

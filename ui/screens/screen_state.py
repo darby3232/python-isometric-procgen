@@ -5,10 +5,10 @@ from core.event_bus import EventListener, event_bus
 from core.event_types import EventType, OnChangeScreenStateEvent
 from graphics.data.graphics_data import GraphicsData
 from graphics.game_draw_data_container import GameDrawDataContainer 
-from graphics.screens.screen import Screen
-from graphics.screens.loading_screen import LoadingScreen
+from ui.screens.screen import Screen
+from ui.screens.loading_screen import LoadingScreen
 from graphics.ui_handler import UIHandler
-from game.screen_state_enum import ScreenState
+from ui.screens.screen_state_enum import ScreenState
 
 class ScreenStateMachine(EventListener):
 

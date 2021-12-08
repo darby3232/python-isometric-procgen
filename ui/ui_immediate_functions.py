@@ -200,3 +200,10 @@ def push_style_var(style_var: UIStyleVars, value: float) -> None:
 
 def pop_style_var(num_to_pop: int) -> None:
 	imgui.pop_style_var(num_to_pop)
+
+
+"""
+Create a button.
+"""
+def button(label: str, width: float, height: float) -> bool:
+	return imgui.button(label, width, height)	

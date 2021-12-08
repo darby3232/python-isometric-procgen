@@ -3,15 +3,15 @@ from typing import List
 
 from core.event_bus import EventListener, ListenerContext, event_bus
 from core.event_types import EventType, OnChangeScreenStateEvent, no_data_event_instance, OnDrawEvent
-from game.screen_state import ScreenStateMachine
-from game.screen_state_enum import ScreenState
+from ui.screens.screen_state import ScreenStateMachine
+from ui.screens.screen_state_enum import ScreenState
 from graphics.data.graphics_data import GraphicsData
 from graphics.game_draw_data_container import GameDrawDataContainer
 from graphics.game_window import GameWindow
 from graphics.image_loader import ImageLoader
 from graphics.ui_handler import UIHandler
-from graphics.ui.ui_test import UITestObject
-from graphics.ui.ui_immediate_functions import font_manager
+from ui.ui_test import UITestObject
+from ui.ui_immediate_functions import font_manager
 import graphics.graphics_helper_functions as graphics_helpers
 
 

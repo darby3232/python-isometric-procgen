@@ -1,7 +1,7 @@
 from enum import Enum, auto
 from typing import NewType
 
-from game.screen_state_enum import ScreenState
+from ui.screens.screen_state_enum import ScreenState
 
 class EventType(Enum):
     # Core Events

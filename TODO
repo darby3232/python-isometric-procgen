@@ -66,3 +66,6 @@ https://pyimgui.readthedocs.io/en/latest/reference/imgui.core.html#
 11/30/21:
 X Added optional context to events
 X Introduced 'screens'
+
+12/7/21:
+O Handle up/down button presses for selection as well as buttons -> Maybe worth looking at later instead?

@@ -7,9 +7,9 @@ import pyglet
 from pyglet import gl
 
 from imgui.integrations.pyglet import PygletFixedPipelineRenderer, PygletProgrammablePipelineRenderer
-from graphics.ui.ui_object import UIObject
+from ui.ui_object import UIObject
 
-import graphics.ui.ui_immediate_functions as ui_int
+import ui.ui_immediate_functions as ui_int
 
 class UIHandler:
 
@@ -43,7 +43,6 @@ class UIHandler:
 		self.objects_to_draw.remove(object_key)
 
 	def draw(self) -> None:
-
 		ui_int.new_frame()
 
 		for key in self.objects_to_draw:

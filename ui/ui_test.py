@@ -1,6 +1,6 @@
-from graphics.ui.ui_object import UIObject
-import graphics.ui.ui_immediate_functions as ui_int
-from graphics.ui.ui_immediate_functions import UIWindowFlags
+from ui.ui_object import UIObject
+import ui.ui_immediate_functions as ui_int
+from ui.ui_immediate_functions import UIWindowFlags
 
 class UITestObject(UIObject):
 

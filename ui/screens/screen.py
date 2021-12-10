@@ -15,6 +15,9 @@ class Screen:
 		self.draw_handler = draw_handler
 		self.graphics_data = graphics_data
 
+	def draw(self) -> None:
+		pass 
+
 	# when drawn
 	def on_activate(self) -> None:
 		pass

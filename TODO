@@ -69,3 +69,6 @@ X Introduced 'screens'
 
 12/7/21:
 O Handle up/down button presses for selection as well as buttons -> Maybe worth looking at later instead?
+
+12/9/21:
+O Take objects out of gui concepts like button

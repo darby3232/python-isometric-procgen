@@ -71,4 +71,7 @@ X Introduced 'screens'
 O Handle up/down button presses for selection as well as buttons -> Maybe worth looking at later instead?
 
 12/9/21:
-O Take objects out of gui concepts like button
+X Take objects out of gui concepts like button
+
+12/11/21:
+O Switch to a custom event loop

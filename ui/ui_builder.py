@@ -21,7 +21,7 @@ def draw_title(window_label: str, text: str, font_size: float, size: tuple[float
 
 	ui_int.push_style_var(UIStyleVars.WINDOW_BORDERSIZE, 0)
 
-	ui_int.begin(label,
+	ui_int.begin(window_label,
 		False,
 		[
 			UIWindowFlags.NO_MOVE,

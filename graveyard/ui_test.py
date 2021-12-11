@@ -1,4 +1,3 @@
-from ui.ui_object import UIObject
 import ui.ui_immediate_functions as ui_int
 from ui.ui_immediate_functions import UIWindowFlags
 
